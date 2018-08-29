@@ -6,7 +6,11 @@
 
     <groupId>spring-boot-study</groupId>
     <artifactId>spring-boot-study</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>mybatis-anotation</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -14,13 +18,6 @@
         <version>2.0.0.RELEASE</version>
     </parent>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-    </dependencies>
 
 
     <build>
