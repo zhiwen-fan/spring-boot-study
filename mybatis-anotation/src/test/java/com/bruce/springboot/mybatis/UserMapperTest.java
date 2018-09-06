@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 /**
  * Created by bruce on 2018/8/29.
  */
@@ -44,4 +46,5 @@ public class UserMapperTest {
         System.out.println(userMapper.selectById(1l).toString());
 
     }
+
 }
