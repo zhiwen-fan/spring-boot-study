@@ -1,4 +1,4 @@
-package com.bruce.springboot.mybatis.mybatis.util;
+package com.bruce.springboot.mybatis.util;
 
 import org.springframework.stereotype.Service;
 

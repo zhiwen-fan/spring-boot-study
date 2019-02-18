@@ -1,6 +1,6 @@
-package com.bruce.springboot.mybatis.mybatis.mapper;
+package com.bruce.springboot.mybatis.mapper;
 
-import com.bruce.springboot.mybatis.mybatis.model.User;
+import com.bruce.springboot.mybatis.model.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by bruce on 2018/8/29.
  */
-@Mapper
+//@Mapper
 public interface UserMapper {
 
     @Select("select * from user where id = #{id}")
@@ -38,4 +38,11 @@ public interface UserMapper {
     int deleteById(Long id);
 
 
+    @Select("select * from user force index (idx_name) where name = #{name}")
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "name", column = "name"),
+            @Result(property = "password", column = "password")
+    })
+    List<User> selectByName(String name);
 }

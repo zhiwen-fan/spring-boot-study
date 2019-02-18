@@ -1,10 +1,9 @@
-package com.bruce.springboot.mybatis.mybatis.service.impl;
+package com.bruce.springboot.mybatis.service.impl;
 
-import com.bruce.springboot.mybatis.mybatis.mapper.UserMapper;
-import com.bruce.springboot.mybatis.mybatis.model.User;
-import com.bruce.springboot.mybatis.mybatis.service.UserService;
-import com.bruce.springboot.mybatis.mybatis.util.UtilService;
-import org.springframework.beans.factory.InitializingBean;
+import com.bruce.springboot.mybatis.mapper.UserMapper;
+import com.bruce.springboot.mybatis.model.User;
+import com.bruce.springboot.mybatis.service.UserService;
+import com.bruce.springboot.mybatis.util.UtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -16,31 +15,32 @@ import java.util.List;
  */
 @Lazy()
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
     @Autowired
     private UtilService utilService;
 
-    User selectById(Long id) {
+    @Override
+    public User selectById(Long id) {
         return userMapper.selectById(id);
     }
-
-    List<User> selectAll() {
+    @Override
+    public List<User> selectAll() {
         return userMapper.selectAll();
     }
 
-
-    int insert(User user) {
+    @Override
+    public int insert(User user) {
         return userMapper.insert(user);
     }
-
-    int updateById(User user) {
+    @Override
+    public int updateById(User user) {
         return userMapper.updateById(user);
     }
-
-    int deleteById(Long id) {
+    @Override
+    public int deleteById(Long id) {
         return userMapper.deleteById(id);
     }
 

@@ -1,4 +1,4 @@
-package com.bruce.springboot.mybatis.mybatis.model;
+package com.bruce.springboot.mybatis.model;
 
 import java.io.Serializable;
 
