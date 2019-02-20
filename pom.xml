@@ -17,6 +17,7 @@
         <module>task</module>
         <module>redis</module>
         <module>transaction</module>
+        <module>quartz</module>
     </modules>
 
     <parent>
