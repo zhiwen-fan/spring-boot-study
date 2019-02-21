@@ -18,6 +18,7 @@
         <module>redis</module>
         <module>transaction</module>
         <module>quartz</module>
+        <module>mybatis-xml</module>
     </modules>
 
     <parent>
