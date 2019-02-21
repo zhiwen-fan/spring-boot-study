@@ -19,6 +19,7 @@
         <module>transaction</module>
         <module>quartz</module>
         <module>mybatis-xml</module>
+        <module>bean-anotation</module>
     </modules>
 
     <parent>
