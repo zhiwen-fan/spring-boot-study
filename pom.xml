@@ -27,6 +27,7 @@
         <module>filter</module>
         <module>exception</module>
         <module>jdbc-template</module>
+        <module>activemq</module>
     </modules>
 
     <parent>
