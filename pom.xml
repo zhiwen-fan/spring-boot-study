@@ -28,6 +28,7 @@
         <module>exception</module>
         <module>jdbc-template</module>
         <module>activemq</module>
+        <module>dubbo</module>
     </modules>
 
     <parent>
