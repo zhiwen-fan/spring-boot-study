@@ -26,6 +26,7 @@
         <module>servlet</module>
         <module>filter</module>
         <module>exception</module>
+        <module>jdbc-template</module>
     </modules>
 
     <parent>
