@@ -21,6 +21,8 @@
         <module>mybatis-xml</module>
         <module>bean-anotation</module>
         <module>quartz-customize</module>
+        <module>springboot-jar</module>
+        <module>springboot-war</module>
     </modules>
 
     <parent>
