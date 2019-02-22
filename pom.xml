@@ -20,6 +20,7 @@
         <module>quartz</module>
         <module>mybatis-xml</module>
         <module>bean-anotation</module>
+        <module>quartz-customize</module>
     </modules>
 
     <parent>
