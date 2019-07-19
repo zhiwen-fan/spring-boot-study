@@ -8,12 +8,14 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 /**
  * Created by bruce on 2019/1/31.
  */
 @Aspect
 @Configuration
+@Order(2)
 public class LogAspect {
     private Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -30,7 +32,7 @@ public class LogAspect {
         }
         log.info("enter " + target + " with parameters: " + queryParam.toString());
         try {
-            result = point.proceed();
+            result = point.proceed(point.getArgs());
             log.info("execute " + target + " returned: " + JSON.toJSONString(result));
         }catch (Throwable throwable) {
             log.error("execute " + target + "failed:",throwable);

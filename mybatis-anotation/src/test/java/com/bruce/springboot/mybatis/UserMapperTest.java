@@ -22,7 +22,6 @@ public class UserMapperTest {
     private UserMapper userMapper;
 
     @Test
-    @Ignore
     public  void testInsert() {
        for (int i = 0; i<3; i++) {
            User user = new  User(null,"bruce" +i,"pwd"+i);

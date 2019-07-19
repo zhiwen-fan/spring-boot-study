@@ -29,6 +29,10 @@
         <module>jdbc-template</module>
         <module>activemq</module>
         <module>dubbo</module>
+        <module>activemq-producer</module>
+        <module>activemq-consumer</module>
+        <module>test</module>
+        <module>mybatis-base</module>
     </modules>
 
     <parent>

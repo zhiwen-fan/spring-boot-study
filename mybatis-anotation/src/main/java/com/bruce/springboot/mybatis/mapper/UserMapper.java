@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by bruce on 2018/8/29.
  */
-//@Mapper
+@Mapper
 public interface UserMapper {
 
     @Select("select * from user where id = #{id}")
