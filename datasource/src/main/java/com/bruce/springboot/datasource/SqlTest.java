@@ -20,4 +20,8 @@ public class SqlTest {
 
         return jdbcTemplate.queryForObject("select * from user where id = 1", rowMapper);
     }
+
+    public void test() {
+        jdbcTemplate.execute("select sleep(5)");
+    }
 }

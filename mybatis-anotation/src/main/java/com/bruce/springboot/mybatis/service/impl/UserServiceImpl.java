@@ -7,13 +7,13 @@ import com.bruce.springboot.mybatis.util.UtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by bruce on 2018/8/29.
  */
-@Lazy()
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -32,8 +32,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int insert(User user) {
-        return userMapper.insert(user);
+    @Transactional(timeout = 1)
+    public int insert(User user){
+        long start = System.currentTimeMillis();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        int result = userMapper.insert(user);
+        long cost = System.currentTimeMillis() - start;
+        System.out.println("time cost: " + cost);
+        return result;
     }
     @Override
     public int updateById(User user) {

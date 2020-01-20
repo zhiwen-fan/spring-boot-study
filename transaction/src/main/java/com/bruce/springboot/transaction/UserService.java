@@ -13,9 +13,16 @@ public class UserService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    //@Transactional
+    @Transactional(timeout = 1)
     public void insert() {
-         jdbcTemplate.update("INSERT INTO user(name, password) VALUE (?,?)",new Object[]{"testName","testPassword"});
-         throw new RuntimeException("insert failed");
+        long start = System.currentTimeMillis();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        jdbcTemplate.update("INSERT INTO user(name, password) VALUE (?,?)",new Object[]{"testName","testPassword"});
+         long cost = System.currentTimeMillis() - start;
+         System.out.println("cost time: " + cost);
     }
 }

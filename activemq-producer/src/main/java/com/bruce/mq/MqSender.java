@@ -20,7 +20,42 @@ public class MqSender {
 
     @GetMapping(value = "/send")
     public void sendMsg(String msg) {
+        long start = System.currentTimeMillis();
+        try {
+            jmsMessagingTemplate.convertAndSend(destination,msg);
+        }catch (Exception e) {
+            long time = System.currentTimeMillis() - start;
+            System.out.println("active mq send cost time: " + time);
+            e.printStackTrace();
+        }
+    }
 
-        jmsMessagingTemplate.convertAndSend(destination,msg);
+    @GetMapping(value = "/mqspace/test")
+    public void sendMultipleMsg() {
+        final int[] msg = new int[1000];
+        for (int i =0; i< 1000; i++) {
+            msg[i] =i;
+        }
+
+        jmsMessagingTemplate.convertAndSend(destination,msg.toString());
+
+        for (int i=0; i<1; i++) {
+            new Thread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            while (true) {
+                                jmsMessagingTemplate.convertAndSend(destination,msg.toString());
+                                try {
+                                    Thread.sleep(200);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+            ).start();
+        }
+
     }
 }
